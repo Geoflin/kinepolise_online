@@ -49,7 +49,7 @@ foreach ($pdo_kinepolise->query('SELECT Nombre_de_place FROM `kinepolise_cinema1
           if (isset($Unix_DateSeanceBegin)){
                 if ($pdo_kinepolise->exec('INSERT INTO kinepolise_cinema1_seance_cinema1 (FilmName, DateSeanceBegin, SalleName, place_disponible) VALUES ("'. $_POST['FilmName'] . '", "' . $fusionDateBegin_AjouterSeance . '", "' . $_POST['SalleName'] .'", "'. $place_disponible .'");') !== false){};
                 //on ajoute date de fin séance
-                  $sql = "UPDATE `kinepolise_cinema1_seance_cinema1` SET `DateSeanceEnd` = '".$DateFinSeance."' WHERE `seance_cinema1`.`DateSeanceEnd` IS NULL";
+                  $sql = "UPDATE `kinepolise_cinema1_seance_cinema1` SET `DateSeanceEnd` = '".$DateFinSeance."' WHERE `kinepolise_cinema1_seance_cinema1`.`DateSeanceEnd` IS NULL";
                  $count = $pdo_kinepolise->exec($sql);
                  $pdo_kinepolise = null;
               } else { 

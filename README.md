@@ -43,7 +43,5 @@ III: Tester l'espace gestionnaire:
 -modifications de séance/infos_films/infos_cinéma
 -suppression d'une ou plusieurs: séance/infos_films/infos_cinéma
 
-
-
 Pour analiser le code: 
 laisser vous porter par l'organisation des dossiers + des fichiers + les commentaires du code !
