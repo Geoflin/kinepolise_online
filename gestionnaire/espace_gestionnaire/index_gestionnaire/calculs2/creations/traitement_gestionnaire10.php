@@ -28,7 +28,7 @@ foreach ($pdo_kinepolise->query('SELECT SalleName FROM `kinepolise_cinema2_seanc
 };
 
 //On converti en timestamps
-foreach ($pdo_kinepolise->query('SELECT DateSeanceBegin, SalleName FROM kinepolise_cinema2_seance_cinema1 WHERE Id=(SELECT max(Id) FROM seance_cinema1);')as $maxid) {
+foreach ($pdo_kinepolise->query('SELECT DateSeanceBegin, SalleName FROM kinepolise_cinema2_seance_cinema1 WHERE Id=(SELECT max(Id) FROM kinepolise_cinema2_seance_cinema1);')as $maxid) {
   $DateSeanceBegin= $maxid['DateSeanceBegin'];
   $SalleName= $maxid['SalleName'];
   if(isset($DateSeanceBegin)) {
@@ -48,7 +48,7 @@ foreach ($pdo_kinepolise->query('SELECT Nombre_de_place FROM `kinepolise_cinema2
           if (isset($Unix_DateSeanceBegin)){
                 if ($pdo_kinepolise->exec('INSERT INTO kinepolise_cinema2_seance_cinema1 (FilmName, DateSeanceBegin, SalleName, place_disponible) VALUES ("'. $_POST['FilmName'] . '", "' . $fusionDateBegin_AjouterSeance . '", "' . $_POST['SalleName'] .'", "'. $place_disponible .'");') !== false){};
                 //on ajoute date de fin séance
-                  $sql = "UPDATE `kinepolise_cinema2_seance_cinema1` SET `DateSeanceEnd` = '".$DateFinSeance."' WHERE `seance_cinema1`.`DateSeanceEnd` IS NULL";
+                  $sql = "UPDATE `kinepolise_cinema2_seance_cinema1` SET `DateSeanceEnd` = '".$DateFinSeance."' WHERE `kinepolise_cinema2_seance_cinema1`.`DateSeanceEnd` IS NULL";
                  $count = $pdo_kinepolise->exec($sql);
                  $pdo_kinepolise = null;
               } else { 

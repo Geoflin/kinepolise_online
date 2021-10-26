@@ -5,7 +5,7 @@
 <!--On permet a l'admin de choisir son créneau de réservation-->
 <h2>Choisissez la période des réservations</h2>
 <div class="center">
-<div class="border"><input type="checkbox" value="tout" name="toutCreneau" required="required">Tout les creneaux</div>
+<div class="border"><input type="checkbox" value="tout" name="toutCreneau">Tout les creneaux</div>
 <div><label for="dateDepart">Date de début: <?php if(isset($_POST['dateDepart'])){echo $_POST['dateDepart'];};?></label></div>
     <input type="date" name="dateDepart"></br>
 <label for="dateFin">Date de fin: <?php if(isset($_POST['dateFin'])){echo $_POST['dateFin'];};?></label></br>

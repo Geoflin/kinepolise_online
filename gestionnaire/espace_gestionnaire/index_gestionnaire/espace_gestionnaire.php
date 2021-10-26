@@ -16,7 +16,7 @@ $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_
   $password= $dataConnexion['password'];
 };
 $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
-  foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_password WHERE Id= "1"', PDO::FETCH_ASSOC) as $adminConnexion) {};
+  foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_administrateur_password WHERE Id= "1"', PDO::FETCH_ASSOC) as $adminConnexion) {};
 session_start();
 ?>
 
@@ -62,7 +62,7 @@ $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_
           <select name="SalleName" required="required" id="SalleName">
         <?php
 $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
-foreach ($pdo_kinepolise->query('SELECT SalleName FROM kinepolise_cinema2_infos_cinema1', PDO::FETCH_ASSOC) as $infos) { ?>
+foreach ($pdo_kinepolise->query('SELECT SalleName FROM kinepolise_cinema1_infos_cinema1', PDO::FETCH_ASSOC) as $infos) { ?>
                         <option id="Salle"> <?php echo $infos['SalleName'].'<br>'; ?></option> 
                         <?php } ?>
         </select>
@@ -78,7 +78,7 @@ foreach ($pdo_kinepolise->query('SELECT SalleName FROM kinepolise_cinema2_infos_
         </tr>
         <?php
 $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
-foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_cinema2_seance_cinema1', PDO::FETCH_ASSOC) as $seance) { 
+foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_cinema1_seance_cinema1', PDO::FETCH_ASSOC) as $seance) { 
       $dateSeanceBegin = new DateTime($seance['DateSeanceBegin']);
       $DateSeanceEnd = new DateTime($seance['DateSeanceEnd']);
             ?>
@@ -101,7 +101,7 @@ foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_cinema2_seance_cinema1
           <select name="SalleName" required="required" id="SalleName">
         <?php
 $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
-foreach ($pdo_kinepolise->query('SELECT SalleName FROM kinepolise_cinema2_infos_cinema1', PDO::FETCH_ASSOC) as $seance) { ?>
+foreach ($pdo_kinepolise->query('SELECT SalleName FROM kinepolise_cinema1_infos_cinema1', PDO::FETCH_ASSOC) as $seance) { ?>
                         <option id="Salle" value=<?php echo $seance['SalleName']; ?>><?php echo $seance['SalleName'].'<br>'; ?></option> <?php
                     }
                 ?>
@@ -129,7 +129,7 @@ foreach ($pdo_kinepolise->query('SELECT SalleName FROM kinepolise_cinema2_infos_
     </tr>
     <td></td>
     <?php
-    foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_cinema2_seance_cinema1', PDO::FETCH_ASSOC) as $seance) { 
+    foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_cinema1_seance_cinema1', PDO::FETCH_ASSOC) as $seance) { 
             ?>
         <tr class=<?php echo $seance['FilmName']?>><td><input type="checkbox" name="Id[]" id="Id" value=" <?php echo $seance['Id']; ?> "></td></tr>   
     <?php } ?>
@@ -236,7 +236,7 @@ $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_
                             }?>
 <!--form modifier_infos_cinema1-->
 
-    <?php foreach ($pdo_kinepolise ->query('SELECT * FROM kinepolise_cinema2_infos_cinema1', PDO::FETCH_ASSOC) as $modifier_infos_cinema1) { 
+    <?php foreach ($pdo_kinepolise ->query('SELECT * FROM kinepolise_cinema1_infos_cinema1', PDO::FETCH_ASSOC) as $modifier_infos_cinema1) { 
       ?>
       <form method="post" action="">
         <tr class=<?php echo $modifier_infos_cinema1['SalleName']?>>
@@ -270,7 +270,7 @@ $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_
                                       </tr>
     <td class=""></td>
     <?php
-    foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_cinema2_infos_cinema1', PDO::FETCH_ASSOC) as $infos_cinema1) { 
+    foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_cinema1_infos_cinema1', PDO::FETCH_ASSOC) as $infos_cinema1) { 
             ?>
         <tr class=<?php echo $infos_cinema1['SalleName']?>><td><input type="checkbox" name="Id[]" id="Id" value=" <?php echo $infos_cinema1['Id']; ?> "></td></tr>   
     <?php } ?>

@@ -1,6 +1,6 @@
 <?php
 //On invoque un petit fichier pour supprimer les messages d'erreur de php
-require_once 'debuf/debug.php';
+require_once 'debug/debug.php';
                                  if(isset($_POST['Id']))
                                  {
                                    // On assigne notre variable $_POST['checkbox_id']
@@ -17,8 +17,9 @@ require_once 'debuf/debug.php';
                                        a sélectionné dans notre formulaire */
                                    for( $i=0; $i<$total; $i++ )
                                    {
-                                    $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');                                     $statement = $pdo->prepare('DELETE FROM info_film WHERE Id = :Id');
-                                     $statement->bindValue(':Id', $nombre[$i], PDO::PARAM_INT);        
+                                    $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
+                                    $statement = $pdo_kinepolise->prepare('DELETE FROM info_film WHERE Id = :Id');
+                                        $statement->bindValue(':Id', $nombre[$i], PDO::PARAM_INT);        
                                          if ($statement->execute()) {
                                          } else {
                                              echo "erreur";

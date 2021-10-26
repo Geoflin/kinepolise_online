@@ -24,11 +24,11 @@
     <select name="cinemaAdresse" required="required">
     <?php 
 $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
-  foreach ($pdo_kinepolise_cinema1->query('SELECT * FROM kinepolise_cinema1_adresse', PDO::FETCH_ASSOC) as $adresse) {};?>
+  foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_cinema1_adresse', PDO::FETCH_ASSOC) as $adresse) {};?>
  <option value="cinema1"><?php echo $adresse['adresse'].'<br>'; ?></option> 
  <?php 
 $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
-  foreach ($pdo_kinepolise_cinema2->query('SELECT * FROM kinepolise_cinema2_adresse', PDO::FETCH_ASSOC) as $adresse) {}; ?>
+  foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_cinema2_adresse', PDO::FETCH_ASSOC) as $adresse) {}; ?>
   <option value="cinema2"><?php echo $adresse['adresse'].'<br>'; ?></option>
   </select>
 

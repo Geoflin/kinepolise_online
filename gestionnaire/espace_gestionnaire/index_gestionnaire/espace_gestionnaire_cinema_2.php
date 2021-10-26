@@ -20,7 +20,7 @@ session_start();
 
 <?php
 $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
-foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_password WHERE Id= "1"', PDO::FETCH_ASSOC) as $adminConnexion) {};
+foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_administrateur_password WHERE Id= "1"', PDO::FETCH_ASSOC) as $adminConnexion) {};
 
 if ((($_SESSION['username'] == $dataConnexion2['username']  && $_SESSION['password'] == $dataConnexion2['password']) || ($_SESSION['username'] == $adminConnexion['username']  && $_SESSION['password'] == $adminConnexion['password']) )) {
   echo sprintf("<nav class=center><h3>Vous êtes connecté, bonjour %s <h3/></nav>", $_SESSION['username']) . PHP_EOL; 

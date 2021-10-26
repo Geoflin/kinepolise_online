@@ -16,7 +16,8 @@
                                        a sélectionné dans notre formulaire */
                                    for( $i=0; $i<$total; $i++ )
                                    {
-                                    $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');                                     $statement = $pdo_kinepolise_cinema1->prepare('DELETE FROM infos_cinema1 WHERE Id = :Id');
+                                    $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');                                     
+                                    $statement = $pdo_kinepolise->prepare('DELETE FROM kinepolise_cinema1_infos_cinema1 WHERE Id = :Id');
                                      $statement->bindValue(':Id', $nombre[$i], PDO::PARAM_INT);        
                                          if ($statement->execute()) {
 

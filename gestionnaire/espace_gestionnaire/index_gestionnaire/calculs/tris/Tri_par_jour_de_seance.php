@@ -21,7 +21,7 @@ $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_
   <?php if(isset($_POST['triSeanceBegin'])){?>
     <?php
 $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
-foreach ($pdo_kinepolise_cinema1->query('SELECT * FROM kinepolise_cinema1_seance_cinema1 WHERE dateSeanceBegin= "'.$_POST['dateSeanceBeginTest'].'" ', PDO::FETCH_ASSOC) as $FilmSalle) {
+foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_cinema1_seance_cinema1 WHERE dateSeanceBegin= "'.$_POST['dateSeanceBeginTest'].'" ', PDO::FETCH_ASSOC) as $FilmSalle) {
   if(isset($FilmSalle['FilmName'])){
     $FilmSalle1= $FilmSalle['FilmName'];
     $SalleName= $FilmSalle['FilmName'];

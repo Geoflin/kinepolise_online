@@ -61,7 +61,7 @@ $place_dispo= $Nombre_de_place1 - $reservation1;
 //On actualise le nombre de réservation
   $pdo_kinepolise->exec("SET CHARACTER SET utf8");
   if(isset($reservation1)){
-    $sql2 = 'UPDATE seance_cinema1 SET Nombre_de_reservation= "'.$reservation1.'" WHERE SalleName= "'.$_POST['SalleName'].'" AND DateSeanceBegin= "'.$_POST['DateSeanceBegin'].'" ';
+    $sql2 = 'UPDATE kinepolise_cinema1_seance_cinema1 SET Nombre_de_reservation= "'.$reservation1.'" WHERE SalleName= "'.$_POST['SalleName'].'" AND DateSeanceBegin= "'.$_POST['DateSeanceBegin'].'" ';
     $count4 = $pdo_kinepolise->exec($sql2);
 
     $pdo_kinepolise = null;
@@ -70,7 +70,7 @@ $place_dispo= $Nombre_de_place1 - $reservation1;
 //On actualise le nombre de place_dispo
 if(isset($place_dispo)){
   $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
-      $sql2 = 'UPDATE seance_cinema1 SET place_disponible= "'.$place_dispo.'" WHERE SalleName= "'.$_POST['SalleName'].'" AND DateSeanceBegin= "'.$_POST['DateSeanceBegin'].'" ';
+      $sql2 = 'UPDATE kinepolise_cinema1_seance_cinema1 SET place_disponible= "'.$place_dispo.'" WHERE SalleName= "'.$_POST['SalleName'].'" AND DateSeanceBegin= "'.$_POST['DateSeanceBegin'].'" ';
     $count4 = $pdo_kinepolise->exec($sql2);
 
     $pdo_kinepolise = null;
@@ -83,7 +83,7 @@ if(isset($place_dispo)){
 } elseif($_SESSION['cinemaAdresse']== 'cinema2'){
   //On récupère données séance réservée
   $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
-  foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_cinema1_seance_cinema2 ', PDO::FETCH_ASSOC) as $reservationSeance) { 
+  foreach ($pdo_kinepolise->query('SELECT * FROM kinepolise_cinema2_seance_cinema1', PDO::FETCH_ASSOC) as $reservationSeance) { 
     $Id= $reservationSeance['Id'];
     $FilmName= $reservationSeance['FilmName'];
     $DateSeanceBegin= $reservationSeance['DateSeanceBegin'];
@@ -100,7 +100,7 @@ foreach ($pdo_kinepolise->query('SELECT * FROM `kinepolise_cinema2_reservation_c
 
  //On récupère Nombre_de_place
  $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
- foreach ($pdo_kinepolise->query('SELECT kinepolise_cinema2_infos_cinema1 FROM infos_cinema1 WHERE SalleName= "'.$_POST['SalleName'].'" ', PDO::FETCH_ASSOC) as $Nombre_de_place) { 
+ foreach ($pdo_kinepolise->query('SELECT Nombre_de_place FROM kinepolise_cinema2_infos_cinema1 WHERE SalleName= "'.$_POST['SalleName'].'" ', PDO::FETCH_ASSOC) as $Nombre_de_place) { 
     $Nombre_de_place1= $Nombre_de_place['Nombre_de_place'];
     };
 
@@ -148,7 +148,7 @@ $place_dispo= $Nombre_de_place1 - $reservation1;
 
 //On actualise le nombre de place_dispo
 if(isset($place_dispo)){
-  $pdo_kinepolise = new PDO('mysql:host=localhost;dbname=kinepolise_cinema2', 'root', '');
+  $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
     $sql2 = 'UPDATE kinepolise_cinema2_seance_cinema1 SET place_disponible= "'.$place_dispo.'" WHERE SalleName= "'.$_POST['SalleName'].'" AND DateSeanceBegin= "'.$_POST['DateSeanceBegin'].'" ';
     $count4 = $pdo_kinepolise->exec($sql2);
 

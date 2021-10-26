@@ -28,7 +28,8 @@ foreach ($pdo_kinepolise->query('SELECT SalleName FROM `kinepolise_cinema1_seanc
 };
 
 //On converti en timestamps
-foreach ($pdo_kinepolise->query('SELECT DateSeanceBegin, SalleName FROM kinepolise_cinema1_seance_cinema1 WHERE Id=(SELECT max(Id) FROM seance_cinema1);')as $maxid) {
+$pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
+foreach ($pdo_kinepolise->query('SELECT DateSeanceBegin, SalleName FROM kinepolise_cinema1_seance_cinema1 WHERE Id=(SELECT max(Id) FROM kinepolise_cinema1_seance_cinema1);')as $maxid) {
   $DateSeanceBegin= $maxid['DateSeanceBegin'];
   $SalleName= $maxid['SalleName'];
   if(isset($DateSeanceBegin)) {
@@ -58,7 +59,7 @@ foreach ($pdo_kinepolise->query('SELECT * FROM `kinepolise_cinema1_seance_cinema
   $Id_creation= $seance['Id'];
 };
                 //on ajoute date de fin séance
-                $sql = "UPDATE `kinepolise_cinema1_seance_cinema1` SET `DateSeanceEnd` = '".$DateFinSeance."' WHERE `seance_cinema1`.`Id` = '".$seance['Id']."' ";
+                $sql = "UPDATE `kinepolise_cinema1_seance_cinema1` SET `DateSeanceEnd` = '".$DateFinSeance."' WHERE `kinepolise_cinema1_seance_cinema1`.`Id` = '".$seance['Id']."' ";
                 $count = $pdo_kinepolise->exec($sql);
                 $pdo_kinepolise = null;
               };
