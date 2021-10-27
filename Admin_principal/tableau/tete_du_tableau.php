@@ -2,7 +2,8 @@
     
     <!-- Thead-->
     <?php
-        $pdo_kinepolise_client = new PDO('mysql:host=localhost;dbname=kinepolise_client', 'root', '');?>
+        $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
+        ?>
 
         <table class="ligne5">
         <tr class="thead">
