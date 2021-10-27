@@ -8,7 +8,7 @@
   <option id="dateSeanceBegin" value=" ">Tout afficher<br></option>
   <?php 
 $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
-  foreach ($pdo_kinepolise->query('SELECT dateSeanceBegin FROM kinepolise_cinema2_infos_cinema1', PDO::FETCH_ASSOC) as $date) { ?>
+  foreach ($pdo_kinepolise->query('SELECT dateSeanceBegin FROM kinepolise_cinema2_seance_cinema1', PDO::FETCH_ASSOC) as $date) { ?>
                     <option><?php echo $date['dateSeanceBegin'].'<br>'; ?></option>
   <?php } ?>
   </select>
