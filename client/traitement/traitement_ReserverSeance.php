@@ -8,7 +8,7 @@ if($_SESSION['cinemaAdresse']== 'cinema1'){
   //stockage dans cinéma1
   $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
   $pdo_kinepolise->exec("SET CHARACTER SET utf8");
-if ($seance['place_disponible']>0){
+if ($reservationSeance['place_disponible']>0){
 if (isset($countCreneauconflict)<1){
     if ($pdo_kinepolise->exec('INSERT INTO kinepolise_cinema1_reservation_client (Id, username, password, FilmName, DateSeanceBegin, DateSeanceEnd, SalleName) VALUES ("'.$Id.'", "'.$_SESSION['username'].'", "'.$_SESSION['password'].'", "'.$FilmName.'", "'.$DateSeanceBegin.'", "'.$DateSeanceEnd.'", "'.$SalleName.'");') !== false){}; 
 } else {
@@ -43,7 +43,7 @@ if(isset($place_dispo)){
   //stockage dans cinéma2
   $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
     $pdo_kinepolise->exec("SET CHARACTER SET utf8");
-    if ($seance['place_disponible']>0){
+    if ($reservationSeance['place_disponible']>0){
     if (isset($countCreneauconflict)<1){
         if ($pdo_kinepolise->exec('INSERT INTO kinepolise_cinema2_reservation_client (Id, username, password, FilmName, DateSeanceBegin, DateSeanceEnd, SalleName) VALUES ("'.$Id.'", "'.$_SESSION['username'].'", "'.$_SESSION['password'].'", "'.$FilmName.'", "'.$DateSeanceBegin.'", "'.$DateSeanceEnd.'", "'.$SalleName.'");') !== false){}; 
     } else {
@@ -51,7 +51,7 @@ if(isset($place_dispo)){
       };
     
     
-      //On stocke nombre de réservation pour une séance dans seance_cinema1
+      //On stocke nombre de réservation pour une séance dans seance_cinema2
       $pdo_kinepolise = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
       $pdo_kinepolise->exec("SET CHARACTER SET utf8");
       if(isset($reservation1)){
