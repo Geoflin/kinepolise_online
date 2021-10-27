@@ -21,7 +21,7 @@ if (isset($DateSeanceBegin1)){
   $DateFinSeance= date('Y-m-d H:i:s',strtotime("+$heure hours $minute minutes", strtotime($fusionDateBegin_AjouterSeance)));
 };
 
-$conn = new PDO('mysql:dbname=kinepolise;host=localhost', 'root', '');
+$conn = new PDO('mysql:host=us-cdbr-east-04.cleardb.com;dbname=heroku_c4414696a201e4e', 'b37053e2dac347', '18a212b7');
 $conn->exec("SET CHARACTER SET utf8");
 
 //On récupère l'Id de la séance crée
