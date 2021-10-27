@@ -4,6 +4,11 @@
         if($_POST['cinemaAdresse2']== 'cinema2' || $_POST['tout']== 'tout'){
 ?>
 
+<tr>
+    <!-- On affiche le nom du cinéma-->
+      <td colspan="6">Cinéma2</td>
+  </tr>
+
 <?php
 //traitement_choix_du_creneau_cinema2 si on a sélectionné tout les créneaux et tout les cinémas
     if($_POST['toutCreneau']== 'tout'){
@@ -12,10 +17,6 @@
             $dateSeanceBegin = new DateTime($seance['DateSeanceBegin']);
             $DateSeanceEnd = new DateTime($seance['DateSeanceEnd']); 
             ?>
-
-            <tr>
-      <td colspan="6">Cinéma2</td>
-  </tr>
 
             <tr class= thead <?php echo $seance['FilmName']?>>
 
