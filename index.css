@@ -33,3 +33,7 @@ a{
     padding: 1rem;
     size: 50px;
   }
+  .center{
+    font-size: 20px;
+    margin-left: 1000px;
+  }

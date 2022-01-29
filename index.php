@@ -2,9 +2,12 @@
  <HEAD>
   <TITLE>Kinepolise/accueil</TITLE>
   <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
  </HEAD>
+ 
 <BODY>
   <div>
+  <div class="center"><i class="material-icons">account_circle</i><a href="https://cvmarhoffergeoffrey.herokuapp.com/" target="_blank">Codeur: Geoffrey</a></div>
 
   <h1>Kinepolise</h1>
   <h3>Votre cinéma</h3>
