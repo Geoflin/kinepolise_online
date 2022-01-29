@@ -7,7 +7,10 @@
  
 <BODY>
   <div>
-  <div class="center"><i class="material-icons">account_circle</i><a href="https://cvmarhoffergeoffrey.herokuapp.com/" target="_blank">Codeur: Geoffrey</a></div>
+  <div class="center"><i class="material-icons">account_circle</i><a href="https://cvmarhoffergeoffrey.herokuapp.com/" target="_blank">Codeur: Geoffrey</a></div><style>  .center{
+    font-size: 20px;
+    margin-left: 1000px;
+  }</style>
 
   <h1>Kinepolise</h1>
   <h3>Votre cinéma</h3>
